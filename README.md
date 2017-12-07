@@ -1,5 +1,5 @@
 # Minimal React Sortable Tree Theme
-<img alt="theme appearance" src="https://user-images.githubusercontent.com/4413963/33521792-61dc2c50-d81f-11e7-8ab1-359661a11ca4.png" width="500">
+<img alt="theme appearance" src="./screenshot.png" width="500">
 
 ## Features
 * Minimalistic Theme for React Sortable Tree
