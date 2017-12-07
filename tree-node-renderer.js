@@ -48,7 +48,7 @@ class MinimalThemeTreeNodeRenderer extends Component {
     const scaffoldBlockCount = lowerSiblingCounts.length - 1;
     let dropType
     if (draggedNode) {
-      if (draggedNode.source && !acceptedSources.includes(draggedNode.source)) {
+      if (draggedNode.source) {
         dropType = 'invalidDrop'
       } else if (canDrop && !isOver) {
         dropType = 'validDrop'

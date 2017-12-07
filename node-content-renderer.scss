@@ -212,8 +212,8 @@ $row-padding: 5px;
 
 .rowSubtitle {
   font-size: 70%;
-  line-height: 0.7;
-  width: 95%;
+  line-height: 1;
+  max-width: 350px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
