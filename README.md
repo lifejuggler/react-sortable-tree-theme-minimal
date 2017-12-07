@@ -7,13 +7,13 @@
 ## Usage
 
 ```sh
-npm install --save react-sortable-tree-theme-full-node-drag
+npm install --save react-sortable-tree-theme-minimal
 ```
 
 ```jsx
 import React, { Component } from 'react';
 import SortableTree from 'react-sortable-tree';
-import FileExplorerTheme from 'react-sortable-tree-theme-full-node-drag';
+import MinimalTheme from 'react-sortable-tree-theme-minimal';
 
 export default class Tree extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export default class Tree extends Component {
         <SortableTree
           treeData={this.state.treeData}
           onChange={treeData => this.setState({ treeData })}
-          theme={FileExplorerTheme}
+          theme={MinimalTheme}
         />
       </div>
     );
