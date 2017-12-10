@@ -26,7 +26,6 @@ class MinimalThemeTreeNodeRenderer extends Component {
   render() {
     const {
       children,
-      listIndex,
       swapFrom,
       swapLength,
       swapDepth,
@@ -40,15 +39,13 @@ class MinimalThemeTreeNodeRenderer extends Component {
       getPrevRow, // Delete from otherProps
       node, // Delete from otherProps
       path, // Delete from otherProps
-      lastNode,
       ...otherProps
     } = this.props;
-
     // Construct the scaffold representing the structure of the tree
     const scaffoldBlockCount = lowerSiblingCounts.length - 1;
     let dropType
     if (draggedNode) {
-      if (draggedNode.source) {
+      if (draggedNode.source && !acceptedSources.includes(draggedNode.source)) {
         dropType = 'invalidDrop'
       } else if (canDrop && !isOver) {
         dropType = 'validDrop'
@@ -57,7 +54,7 @@ class MinimalThemeTreeNodeRenderer extends Component {
       }
     }
     return connectDropTarget(
-      <div {...otherProps} onMouseOver={this.bound.handleMouseOver} onMouseLeave={this.bound.handleMouseLeave} {...otherProps} onFocus={ () => {} } className={styles.node + (this.state.highlight ? ` ${styles.highlight}` : '') + (lastNode ?  ` ${styles.lastNodeDrop}` : '') + (dropType ? ` ${styles[dropType]}` : '')}>
+      <div {...otherProps} onMouseOver={this.bound.handleMouseOver} onMouseLeave={this.bound.handleMouseLeave} {...otherProps} onFocus={ () => {} } className={styles.node + (this.state.highlight ? ` ${styles.highlight}` : '') + (dropType ? ` ${styles[dropType]}` : '')}>
         <div
           className={styles.nodeContent}
           style={{paddingLeft: scaffoldBlockPxWidth * scaffoldBlockCount}}
@@ -74,14 +71,12 @@ class MinimalThemeTreeNodeRenderer extends Component {
     );
   }
 }
-
 MinimalThemeTreeNodeRenderer.defaultProps = {
   swapFrom: null,
   swapDepth: null,
   swapLength: null,
   canDrop: false,
-  draggedNode: null,
-  lastNode: false
+  draggedNode: null
 };
 
 MinimalThemeTreeNodeRenderer.propTypes = {
@@ -92,7 +87,6 @@ MinimalThemeTreeNodeRenderer.propTypes = {
   scaffoldBlockPxWidth: PropTypes.number.isRequired,
   lowerSiblingCounts: PropTypes.arrayOf(PropTypes.number).isRequired,
 
-  listIndex: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
 
   // Drop target
@@ -106,8 +100,7 @@ MinimalThemeTreeNodeRenderer.propTypes = {
   node: PropTypes.shape({}).isRequired,
   path: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ).isRequired,
-  lastNode: PropTypes.bool
+  ).isRequired
 };
 
 export default MinimalThemeTreeNodeRenderer;

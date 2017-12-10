@@ -19,12 +19,7 @@ class App extends Component {
           subtitle: 'Note how the hover behavior is different',
           dragDisabled: true,
         },
-        {
-          title: 'This node has dragging disabled',
-          subtitle: 'THis node has a super long description as the subtitle to test stuff that is super long that can be inserted into the subtitle that I can see and valid date stuff with',
-
-        },
-        { title: 'Chicken', children: [{ title: 'Egg', children: [{ title: 'Egg', children: [{ title: 'Egg', children: [{ title: 'Egg', children: [{ title: 'Egg' }] }] }] }] }] },
+        { title: 'Chicken', children: [{ title: 'Egg' }] },
       ],
     };
     this.updateTreeData = this.updateTreeData.bind(this);
@@ -149,7 +144,8 @@ class App extends Component {
             onChange={this.updateTreeData}
             searchQuery={searchString}
             searchFocusOffset={searchFocusIndex}
-            style={{width: '500px'}}
+            style={{width: '600px'}}
+            rowHeight={45}
             searchFinishCallback={matches =>
               this.setState({
                 searchFoundCount: matches.length,

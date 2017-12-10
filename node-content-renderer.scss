@@ -1,5 +1,5 @@
-$row-padding: 5px;
-
+$row-padding: 2px;
+$hover-padding: 3px;
 .rowWrapper {
   padding: $row-padding $row-padding $row-padding 0;
   height: 100%;
@@ -8,6 +8,7 @@ $row-padding: 5px;
 
   &:hover {
     opacity: 0.7;
+    padding: $hover-padding $hover-padding $hover-padding 0;
   }
 
   &:active {
@@ -72,14 +73,14 @@ $row-padding: 5px;
  * Nodes matching the search conditions are highlighted
  */
 .rowSearchMatch {
-  outline: solid 3px #0080ff;
+  outline: solid 1px #0080ff;
 }
 
 /**
  * The node that matches the search conditions and is currently focused
  */
 .rowSearchFocus {
-  outline: solid 3px #fc6421;
+  outline: solid 1px #fc6421;
 }
 
 %rowItem {
@@ -101,6 +102,7 @@ $row-padding: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   &:hover {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
   }
 }
@@ -212,8 +214,8 @@ $row-padding: 5px;
 
 .rowSubtitle {
   font-size: 70%;
-  line-height: 1;
-  max-width: 350px;
+  line-height: 0.7;
+  width: 95%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -229,11 +231,12 @@ $row-padding: 5px;
   width: 16px;
   height: 16px;
   top: 50%;
-  padding-left: 80px;
+  padding-left: 120px;
   cursor: pointer;
   z-index: 1000;
   transform: translate(-50%, -50%);
   cursor: pointer;
+  &:focus {outline:0;}
 }
 
 .collapseButton {

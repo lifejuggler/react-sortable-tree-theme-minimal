@@ -13,7 +13,7 @@ function isDescendant(older, younger) {
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class CustomThemeNodeContentRenderer extends Component {
+class MinimalThemeNodeContentRenderer extends Component {
   render() {
     const {
       scaffoldBlockPxWidth,
@@ -36,8 +36,6 @@ class CustomThemeNodeContentRenderer extends Component {
       className,
       style,
       didDrop,
-      lowerSiblingCounts,
-      listIndex,
       swapFrom,
       swapLength,
       swapDepth,
@@ -56,6 +54,8 @@ class CustomThemeNodeContentRenderer extends Component {
       <div
         className={
           styles.rowContents +
+          (isSearchMatch ? ` ${styles.rowSearchMatch}` : '') +
+          (isSearchFocus ? ` ${styles.rowSearchFocus}` : '') +
           (!canDrag ? ` ${styles.rowContentsDragDisabled}` : '')
         }
       >
@@ -143,8 +143,6 @@ class CustomThemeNodeContentRenderer extends Component {
               styles.row +
               (isLandingPadActive ? ` ${styles.rowLandingPad}` : '') +
               (isLandingPadActive && !canDrop ? ` ${styles.rowCancelPad}` : '') +
-              (isSearchMatch ? ` ${styles.rowSearchMatch}` : '') +
-              (isSearchFocus ? ` ${styles.rowSearchFocus}` : '') +
               (className ? ` ${className}` : '')
             }
             style={{
@@ -163,7 +161,7 @@ class CustomThemeNodeContentRenderer extends Component {
   }
 }
 
-CustomThemeNodeContentRenderer.defaultProps = {
+MinimalThemeNodeContentRenderer.defaultProps = {
   buttons: [],
   canDrag: false,
   canDrop: false,
@@ -179,19 +177,16 @@ CustomThemeNodeContentRenderer.defaultProps = {
   swapFrom: null,
   swapLength: null,
   title: null,
-  toggleChildrenVisibility: null,
-  onNodeClick: () => {}
+  toggleChildrenVisibility: null
 };
 
-CustomThemeNodeContentRenderer.propTypes = {
+MinimalThemeNodeContentRenderer.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.node),
   canDrag: PropTypes.bool,
   className: PropTypes.string,
   icons: PropTypes.arrayOf(PropTypes.node),
   isSearchFocus: PropTypes.bool,
   isSearchMatch: PropTypes.bool,
-  listIndex: PropTypes.number.isRequired,
-  lowerSiblingCounts: PropTypes.arrayOf(PropTypes.number).isRequired,
   node: PropTypes.shape({}).isRequired,
   path: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
@@ -217,8 +212,7 @@ CustomThemeNodeContentRenderer.propTypes = {
   parentNode: PropTypes.shape({}), // Needed for dndManager
   // Drop target
   canDrop: PropTypes.bool,
-  isOver: PropTypes.bool.isRequired,
-  onNodeClick: PropTypes.func
+  isOver: PropTypes.bool.isRequired
 };
 
-export default CustomThemeNodeContentRenderer;
+export default MinimalThemeNodeContentRenderer;
