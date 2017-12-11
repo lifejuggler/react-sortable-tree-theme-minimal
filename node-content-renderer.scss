@@ -1,14 +1,16 @@
-$row-padding: 2px;
+$row-padding: 0px;
 $hover-padding: 3px;
 .rowWrapper {
-  padding: $row-padding $row-padding $row-padding 0;
+  padding: $row-padding $hover-padding $row-padding 0;
   height: 100%;
   box-sizing: border-box;
   cursor: move;
+  font-size: 14px;
 
   &:hover {
     opacity: 0.7;
     padding: $hover-padding $hover-padding $hover-padding 0;
+    font-size: 15px;
   }
 
   &:active {
@@ -214,7 +216,7 @@ $hover-padding: 3px;
 
 .rowSubtitle {
   font-size: 70%;
-  line-height: 0.7;
+  line-height: 1;
   width: 95%;
   overflow: hidden;
   white-space: nowrap;
