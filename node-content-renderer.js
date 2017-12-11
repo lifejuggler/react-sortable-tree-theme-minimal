@@ -177,7 +177,8 @@ MinimalThemeNodeContentRenderer.defaultProps = {
   swapFrom: null,
   swapLength: null,
   title: null,
-  toggleChildrenVisibility: null
+  toggleChildrenVisibility: null,
+  onNodeClick: () => {}
 };
 
 MinimalThemeNodeContentRenderer.propTypes = {
@@ -212,7 +213,8 @@ MinimalThemeNodeContentRenderer.propTypes = {
   parentNode: PropTypes.shape({}), // Needed for dndManager
   // Drop target
   canDrop: PropTypes.bool,
-  isOver: PropTypes.bool.isRequired
+  isOver: PropTypes.bool.isRequired,
+  onNodeClick: PropTypes.func
 };
 
 export default MinimalThemeNodeContentRenderer;
