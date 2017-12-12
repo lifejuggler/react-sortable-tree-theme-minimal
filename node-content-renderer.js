@@ -42,6 +42,7 @@ class MinimalThemeNodeContentRenderer extends Component {
       treeId, // Not needed, but preserved for other renderers
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
+      onNodeClick,
       ...otherProps
     } = this.props;
     const nodeTitle = title || node.title;
@@ -59,7 +60,10 @@ class MinimalThemeNodeContentRenderer extends Component {
           (!canDrag ? ` ${styles.rowContentsDragDisabled}` : '')
         }
       >
-        <div className={styles.rowLabel}>
+        <div className={styles.rowLabel}
+          role="presentation"
+          onClick={() => {onNodeClick(node)}} // eslint-disable click-events-have-key-events
+          onKeyUp={() => {}}>
           <span
             className={
               styles.rowTitle +
