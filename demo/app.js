@@ -12,14 +12,17 @@ class App extends Component {
       searchFocusIndex: 0,
       searchFoundCount: null,
       treeData: [
-        { title: 'This is the Full Node Drag theme' },
-        { title: 'You can click anywhere on the node to drag it' },
+        { title: 'This is the Full Node Drag theme',
+          subtitle: 'this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things' },
+        { title: 'You can click anywhere on the node to drag it',
+          subtitle: 'this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things this'
+        },
         {
           title: 'This node has dragging disabled',
           subtitle: 'Note how the hover behavior is different',
           dragDisabled: true,
         },
-        { title: 'Chicken', children: [{ title: 'Egg' }] },
+        { title: 'Chicken', children: [{ title: 'Egg', subtitle: 'this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things this is a very long subtitle with the intention of testing hte lenght of the subtitle and its affect on things' }] },
       ],
     };
     this.updateTreeData = this.updateTreeData.bind(this);

@@ -75,14 +75,14 @@ $hover-padding: 3px;
  * Nodes matching the search conditions are highlighted
  */
 .rowSearchMatch {
-  outline: solid 1px #0080ff;
+  box-shadow: 10px 10px 10px rgba(0, 128, 255, 1), 0 0 0;
 }
 
 /**
  * The node that matches the search conditions and is currently focused
  */
 .rowSearchFocus {
-  outline: solid 1px #fc6421;
+  box-shadow: -10px 0 10px rgba(252, 100, 33, 1), 0 0 0;
 }
 
 %rowItem {
@@ -95,14 +95,13 @@ $hover-padding: 3px;
   position: relative;
   height: 100%;
   padding: 0 5px 0 30px;
-  min-width: 230px;
+  width: 100%;
   flex: 1 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border-bottom: 1px solid #F1F1F1;
   &:hover {
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
@@ -113,7 +112,7 @@ $hover-padding: 3px;
   @extend %rowItem;
   flex: 0 1 auto;
   padding-right: 20px;
-  width: 100%;
+  width: 90%;
 }
 
 .rowToolbar {
