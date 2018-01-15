@@ -1,5 +1,5 @@
 # Minimal React Sortable Tree Theme
-<img alt="theme appearance" src="https://user-images.githubusercontent.com/4413963/33521792-61dc2c50-d81f-11e7-8ab1-359661a11ca4.png" width="500">
+<img alt="theme appearance" src="./example-resource/main.png" width="500">
 
 ## Features
 * Minimalistic Theme for React Sortable Tree
@@ -7,13 +7,13 @@
 ## Usage
 
 ```sh
-npm install --save react-sortable-tree-theme-full-node-drag
+npm install --save react-sortable-tree-theme-minimal
 ```
 
 ```jsx
 import React, { Component } from 'react';
 import SortableTree from 'react-sortable-tree';
-import FileExplorerTheme from 'react-sortable-tree-theme-full-node-drag';
+import FileExplorerTheme from 'react-sortable-tree-theme-minimal';
 
 export default class Tree extends Component {
   constructor(props) {
