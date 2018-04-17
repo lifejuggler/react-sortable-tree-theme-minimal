@@ -44,15 +44,12 @@ class MinimalThemeTreeNodeRenderer extends Component {
     // Construct the scaffold representing the structure of the tree
     const scaffoldBlockCount = lowerSiblingCounts.length - 1;
     let dropType
-    if (draggedNode) {
-      if (draggedNode.source && !acceptedSources.includes(draggedNode.source)) {
-        dropType = 'invalidDrop'
-      } else if (canDrop && !isOver) {
-        dropType = 'validDrop'
-      } else if (!canDrop && isOver) {
-        dropType = 'invalidDrop'
-      }
+    if (canDrop && !isOver) {
+      dropType = 'validDrop'
+    } else if (!canDrop && isOver) {
+      dropType = 'invalidDrop'
     }
+
     return connectDropTarget(
       <div {...otherProps} onMouseOver={this.bound.handleMouseOver} onMouseLeave={this.bound.handleMouseLeave} {...otherProps} onFocus={ () => {} } className={styles.node + (this.state.highlight ? ` ${styles.highlight}` : '') + (dropType ? ` ${styles[dropType]}` : '')}>
         <div
