@@ -36,6 +36,9 @@ class MinimalThemeTreeNodeRenderer extends Component {
       draggedNode,
       canDrop,
       treeIndex,
+      treeId,
+      listIndex,
+      rowDirection,
       getPrevRow, // Delete from otherProps
       node, // Delete from otherProps
       path, // Delete from otherProps
@@ -73,7 +76,8 @@ MinimalThemeTreeNodeRenderer.defaultProps = {
   swapDepth: null,
   swapLength: null,
   canDrop: false,
-  draggedNode: null
+  draggedNode: null,
+  rowDirection: 'ltr'
 };
 
 MinimalThemeTreeNodeRenderer.propTypes = {
@@ -83,7 +87,9 @@ MinimalThemeTreeNodeRenderer.propTypes = {
   swapLength: PropTypes.number,
   scaffoldBlockPxWidth: PropTypes.number.isRequired,
   lowerSiblingCounts: PropTypes.arrayOf(PropTypes.number).isRequired,
-
+  treeId: PropTypes.string.isRequired,
+  listIndex: PropTypes.number.isRequired,
+  rowDirection: PropTypes.string,
   children: PropTypes.node.isRequired,
 
   // Drop target

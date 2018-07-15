@@ -42,6 +42,7 @@ class MinimalThemeNodeContentRenderer extends Component {
       treeId, // Not needed, but preserved for other renderers
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
+      rowDirection,
       ...otherProps
     } = this.props;
     const nodeTitle = title || node.title;
@@ -49,9 +50,7 @@ class MinimalThemeNodeContentRenderer extends Component {
 
     const isDraggedDescendant = draggedNode && isDescendant(draggedNode, node);
     const isLandingPadActive = !didDrop && isDragging;
-
-    const nodeContent = connectDragPreview(
-      <div
+    const nodeContent = connectDragPreview( <div
         className={
           styles.rowContents +
           (isSearchMatch ? ` ${styles.rowSearchMatch}` : '') +
@@ -177,7 +176,8 @@ MinimalThemeNodeContentRenderer.defaultProps = {
   swapFrom: null,
   swapLength: null,
   title: null,
-  toggleChildrenVisibility: null
+  toggleChildrenVisibility: null,
+  rowDirection: 'ltr'
 };
 
 MinimalThemeNodeContentRenderer.propTypes = {
@@ -212,7 +212,8 @@ MinimalThemeNodeContentRenderer.propTypes = {
   parentNode: PropTypes.shape({}), // Needed for dndManager
   // Drop target
   canDrop: PropTypes.bool,
-  isOver: PropTypes.bool.isRequired
+  isOver: PropTypes.bool.isRequired,
+  rowDirection: PropTypes.string
 };
 
 export default MinimalThemeNodeContentRenderer;
