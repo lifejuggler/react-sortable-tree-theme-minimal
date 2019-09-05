@@ -213,7 +213,7 @@ MinimalThemeNodeContentRenderer.propTypes = {
   // Drop target
   canDrop: PropTypes.bool,
   isOver: PropTypes.bool.isRequired,
-  rowDirection: PropTypes.string
+  rowDirection: PropTypes.string.isRequired
 };
 
 export default MinimalThemeNodeContentRenderer;
